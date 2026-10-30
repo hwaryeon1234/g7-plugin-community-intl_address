@@ -1,0 +1,97 @@
+{
+  "editor": {
+    "data_source": {
+      "settings": "해외 주소 설정"
+    }
+  },
+  "search_button": "해외 주소",
+  "search_button_label": "해외 주소 입력",
+  "dialog": {
+    "title": "해외 주소 입력",
+    "close": "닫기",
+    "country": "국가",
+    "search": "주소 검색",
+    "search_placeholder": "주소를 영문으로 입력하면 후보를 보여 줍니다",
+    "address_line_1": "주소 1 (번지·거리)",
+    "address_line_2": "주소 2 (아파트·호수·건물, 선택)",
+    "city": "도시 (City)",
+    "postal_code": "우편번호 (Postal code)",
+    "select": "선택하세요",
+    "example": "예: {example}",
+    "preview": "미리보기",
+    "no_results": "검색 결과가 없습니다. 아래 칸에 직접 입력해 주세요.",
+    "provider_failed": "주소 검색을 사용할 수 없습니다. 아래 칸에 직접 입력해 주세요.",
+    "cancel": "취소",
+    "apply": "적용",
+    "state_label": {
+      "state": "주 (State)",
+      "province": "주/도 (Province)",
+      "prefecture": "도도부현 (Prefecture)",
+      "region": "지역 (Region)",
+      "county": "카운티 (County)",
+      "emirate": "토후국 (Emirate)"
+    }
+  },
+  "errors": {
+    "required": "필수 입력 항목입니다.",
+    "invalid_postal": "우편번호 형식이 올바르지 않습니다.",
+    "invalid_postal_example": "우편번호 형식이 올바르지 않습니다. (예: {example})",
+    "invalid_country": "국가를 선택해 주세요.",
+    "too_long": "너무 깁니다.",
+    "no_countries": "주소를 입력할 수 있는 국가가 없습니다. 관리자 설정을 확인해 주세요."
+  },
+  "settings": {
+    "title": "해외 주소 입력 설정",
+    "description": "해외 주소 입력 창의 국가 목록과 주소 자동완성 제공자를 설정합니다.",
+    "notice": "자동완성 없이도 국가별 입력 폼과 검증은 동작합니다. 자동완성 API 키는 브라우저에서 쓰이므로 제공자 콘솔에서 반드시 사이트 도메인으로 제한하세요.",
+    "section_provider": "자동완성",
+    "section_countries": "국가",
+    "section_display": "표시",
+    "guide": {
+      "title": "사용 안내",
+      "step1": "주소 검색 자리가 있는 화면(주문서·배송지·회원 정보 등)에 「해외 주소」 버튼이 Daum 우편번호 버튼 옆에 나타납니다.",
+      "step2": "이커머스 화면에서는 고른 주소가 해외 주소 칸(주소 1·2, 도시, 주, 우편번호)과 배송 국가에 들어가고, 배송비가 다시 계산됩니다.",
+      "step3": "해외 주소 칸이 없는 화면(회원 정보 등)에는 우편번호와 한 줄 주소가 들어갑니다.",
+      "step4": "자동완성을 쓰려면 제공자를 고르고 그 제공자의 API 키를 넣으세요. 키를 비우면 직접 입력만 됩니다."
+    },
+    "fields": {
+      "provider": {
+        "label": "자동완성 제공자",
+        "hint": "주소 자동완성에 쓸 서비스를 고릅니다. 「사용 안 함」이면 국가별 입력 폼과 검증만 동작합니다.",
+        "none": "사용 안 함",
+        "google": "Google Places",
+        "loqate": "Loqate",
+        "geoapify": "Geoapify"
+      },
+      "google_api_key": {
+        "label": "Google Places API 키",
+        "hint": "Places API (New) 를 사용 설정한 키. HTTP 리퍼러를 사이트 도메인으로 제한하세요."
+      },
+      "loqate_api_key": {
+        "label": "Loqate API 키",
+        "hint": "Loqate(Address Capture) 키. 계정에서 허용 도메인을 제한하세요."
+      },
+      "geoapify_api_key": {
+        "label": "Geoapify API 키",
+        "hint": "Geoapify 키. 무료 요금제가 있으며 허용 출처(Origin)를 제한할 수 있습니다."
+      },
+      "default_country": {
+        "label": "기본 국가",
+        "hint": "입력 창을 열 때 먼저 선택되는 국가 코드 (ISO 3166-1 alpha-2, 예: US)"
+      },
+      "allowed_countries": {
+        "label": "허용 국가",
+        "hint": "쉼표로 구분한 국가 코드 (예: US,JP,CN). 비우면 모든 국가. 이커머스 배송 화면은 이커머스 배송 가능 국가와 겹치는 국가만 보입니다."
+      },
+      "exclude_kr": {
+        "label": "대한민국 제외",
+        "hint": "국내 주소는 Daum 우편번호로 입력하도록 국가 목록에서 대한민국을 뺍니다."
+      },
+      "theme_color": {
+        "label": "테마 색상",
+        "hint": "입력 창의 강조 색상입니다. (예: #1D4ED8)"
+      }
+    }
+  },
+  "plugin_read_only": "이 플러그인 설정을 수정할 권한이 없어 읽기 전용으로 표시됩니다."
+}

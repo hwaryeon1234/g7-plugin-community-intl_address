@@ -1,0 +1,32 @@
+{
+    "identifier": "community-intl_address",
+    "vendor": "community",
+    "name": {
+        "ko": "해외 주소 입력",
+        "en": "International Address"
+    },
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": {
+        "ko": "국가별 형식에 맞춘 해외 주소 입력·검증과 주소 자동완성(Google Places · Loqate · Geoapify 선택)을 제공하는 플러그인입니다. 주소 검색 자리(address_search_slot)가 있는 모든 화면에 붙습니다.",
+        "en": "Country-aware international address entry and validation with optional autocomplete (Google Places, Loqate or Geoapify). Attaches to every screen that opens the address_search_slot."
+    },
+    "g7_version": ">=7.1.1",
+    "dependencies": {
+        "modules": {},
+        "plugins": {}
+    },
+    "github_url": "https://github.com/hwaryeon1234/g7-plugin-community-intl_address",
+    "github_changelog_url": "https://github.com/hwaryeon1234/g7-plugin-community-intl_address/blob/main/CHANGELOG.md",
+    "assets": {
+        "js": {
+            "entry": "resources/js/index.ts",
+            "output": "dist/js/plugin.iife.js"
+        },
+        "handlers": true
+    },
+    "loading": {
+        "strategy": "global",
+        "priority": 100
+    }
+}

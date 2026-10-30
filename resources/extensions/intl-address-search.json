@@ -1,0 +1,43 @@
+{
+    "comment": "해외 주소 버튼 — 주소 검색 자리(address_search_slot)를 여는 모든 화면에 Daum 우편번호 버튼과 나란히 선다.\n  누르면 해외 주소 입력 창이 뜨고, 확정한 주소는 그 화면이 넘겨 준 콜백(onAddressSelect)으로 간다.\n\n  해외 칸을 따로 가진 이커머스 화면(주문서·배송지 모달·마이페이지 배송지·관리자 주문 상세)은 콜백만으로는 해외 칸이\n  채워지지 않는다 — 콜백이 국내 칸(zipcode·address)만 쓰기 때문이다. 그래서 화면 상태를 보고 프리셋 이름(intlTarget)을\n  골라 넘기고, 핸들러가 그 화면의 해외 칸과 국가를 먼저 쓴 뒤 콜백을 실행한다(배송비 재계산이 바뀐 국가로 돈다).\n  확장점을 여는 쪽이 props 로 intlTarget 을 넘기면 그것이 우선한다 — 새 화면은 그렇게 붙인다(docs/extension-points.md).\n\n  주문서 쪽 프리셋은 이커머스 해외배송이 켜져 있을 때만 버튼을 세운다. 꺼져 있으면 고를 수 있는 배송 국가가 없다.",
+    "extension_point": "address_search_slot",
+    "priority": 110,
+    "components": [
+        {
+            "id": "intl_address_container",
+            "type": "basic",
+            "name": "Div",
+            "if": "{{!(['checkout', 'checkout_modal', 'user_address'].includes(extensionPointProps.intlTarget ?? (_global.checkoutAddressModal?.mode === 'form' ? 'checkout_modal' : (_global.editingAddress ? 'user_address' : (_local.form?.recipient_address !== undefined ? 'admin_order' : ((_local.shipping !== undefined && _local.checkout !== undefined) ? 'checkout' : '')))))) || _global.modules?.['sirsoft-ecommerce']?.shipping?.international_shipping_enabled === true}}",
+            "props": {
+                "className": "inline-flex"
+            },
+            "children": [
+                {
+                    "id": "btn_intl_address",
+                    "type": "basic",
+                    "name": "Button",
+                    "actions": [
+                        {
+                            "comment": "입력 창 열기. intlTarget = 해외 칸을 쓸 화면(프리셋 이름), countries = 그 화면이 받는 국가(이커머스 배송 가능 국가, 없으면 설정의 허용 국가)",
+                            "type": "click",
+                            "handler": "community-intl_address.openIntlAddress",
+                            "params": {
+                                "callbackAction": "{{extensionPointCallbacks.onAddressSelect}}",
+                                "targetFields": "{{extensionPointProps.targetFields}}",
+                                "intlTarget": "{{extensionPointProps.intlTarget ?? (_global.checkoutAddressModal?.mode === 'form' ? 'checkout_modal' : (_global.editingAddress ? 'user_address' : (_local.form?.recipient_address !== undefined ? 'admin_order' : ((_local.shipping !== undefined && _local.checkout !== undefined) ? 'checkout' : ''))))}}",
+                                "countries": "{{extensionPointProps.countries ?? ((_global.modules?.['sirsoft-ecommerce']?.shipping?.international_shipping_enabled === true && (_global.checkoutAddressModal?.mode === 'form' || !!_global.editingAddress || (_local.shipping !== undefined && _local.checkout !== undefined))) ? (_global.modules?.['sirsoft-ecommerce']?.shipping?.available_countries ?? []).filter(c => c.is_active).map(c => c.code) : null)}}"
+                            }
+                        }
+                    ],
+                    "props": {
+                        "type": "button",
+                        "className": "flex-shrink-0 px-3 py-2 bg-gray-100 dark:bg-gray-700 text-sm text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                        "aria-label": "$t:community-intl_address.search_button_label",
+                        "disabled": "{{String(extensionPointProps.disabled ?? false) === 'true'}}"
+                    },
+                    "text": "$t:community-intl_address.search_button"
+                }
+            ]
+        }
+    ]
+}

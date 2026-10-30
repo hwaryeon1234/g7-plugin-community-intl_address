@@ -1,0 +1,26 @@
+{
+    "_meta": {
+        "version": "1.0.0",
+        "description": "해외 주소 입력 플러그인 환경설정"
+    },
+    "defaults": {
+        "provider": "none",
+        "google_api_key": "",
+        "loqate_api_key": "",
+        "geoapify_api_key": "",
+        "default_country": "US",
+        "allowed_countries": "",
+        "exclude_kr": true,
+        "theme_color": "#1D4ED8"
+    },
+    "frontend_schema": {
+        "provider": { "expose": true },
+        "google_api_key": { "expose": true },
+        "loqate_api_key": { "expose": true },
+        "geoapify_api_key": { "expose": true },
+        "default_country": { "expose": true },
+        "allowed_countries": { "expose": true },
+        "exclude_kr": { "expose": true },
+        "theme_color": { "expose": true }
+    }
+}

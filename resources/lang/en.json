@@ -1,0 +1,97 @@
+{
+  "editor": {
+    "data_source": {
+      "settings": "International address settings"
+    }
+  },
+  "search_button": "Overseas address",
+  "search_button_label": "Enter an overseas address",
+  "dialog": {
+    "title": "Overseas address",
+    "close": "Close",
+    "country": "Country",
+    "search": "Search address",
+    "search_placeholder": "Start typing an address to see suggestions",
+    "address_line_1": "Address line 1 (street)",
+    "address_line_2": "Address line 2 (apt, suite, building — optional)",
+    "city": "City",
+    "postal_code": "Postal code",
+    "select": "Select",
+    "example": "e.g. {example}",
+    "preview": "Preview",
+    "no_results": "No results. Please type the address in the fields below.",
+    "provider_failed": "Address search is unavailable. Please type the address in the fields below.",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "state_label": {
+      "state": "State",
+      "province": "Province",
+      "prefecture": "Prefecture",
+      "region": "Region",
+      "county": "County",
+      "emirate": "Emirate"
+    }
+  },
+  "errors": {
+    "required": "This field is required.",
+    "invalid_postal": "Invalid postal code.",
+    "invalid_postal_example": "Invalid postal code. (e.g. {example})",
+    "invalid_country": "Please select a country.",
+    "too_long": "Too long.",
+    "no_countries": "No countries are available for address entry. Please check the plugin settings."
+  },
+  "settings": {
+    "title": "International Address Settings",
+    "description": "Configure the country list and the autocomplete provider of the overseas address window.",
+    "notice": "The country-aware form and validation work without autocomplete. Autocomplete API keys are used in the browser, so always restrict them to your site domain in the provider console.",
+    "section_provider": "Autocomplete",
+    "section_countries": "Countries",
+    "section_display": "Display",
+    "guide": {
+      "title": "How it works",
+      "step1": "An \"Overseas address\" button appears next to the Korean postcode button on every screen with an address search slot (checkout, shipping addresses, profile, ...).",
+      "step2": "On ecommerce screens the chosen address fills the international fields (lines 1-2, city, state, postal code) and the shipping country, and shipping is recalculated.",
+      "step3": "Screens without international fields (profile, ...) receive the postal code and a single-line address.",
+      "step4": "To enable autocomplete, choose a provider and enter its API key. With no key, only manual entry is available."
+    },
+    "fields": {
+      "provider": {
+        "label": "Autocomplete provider",
+        "hint": "Service used for address autocomplete. With \"None\", only the country-aware form and validation are used.",
+        "none": "None",
+        "google": "Google Places",
+        "loqate": "Loqate",
+        "geoapify": "Geoapify"
+      },
+      "google_api_key": {
+        "label": "Google Places API key",
+        "hint": "Key with Places API (New) enabled. Restrict HTTP referrers to your site domain."
+      },
+      "loqate_api_key": {
+        "label": "Loqate API key",
+        "hint": "Loqate (Address Capture) key. Restrict allowed domains in your account."
+      },
+      "geoapify_api_key": {
+        "label": "Geoapify API key",
+        "hint": "Geoapify key. Has a free tier; restrict allowed origins."
+      },
+      "default_country": {
+        "label": "Default country",
+        "hint": "Country selected when the window opens (ISO 3166-1 alpha-2, e.g. US)"
+      },
+      "allowed_countries": {
+        "label": "Allowed countries",
+        "hint": "Comma-separated country codes (e.g. US,JP,CN). Empty means all. Ecommerce shipping screens show only countries also enabled for shipping."
+      },
+      "exclude_kr": {
+        "label": "Exclude South Korea",
+        "hint": "Removes South Korea from the list so domestic addresses go through the Korean postcode search."
+      },
+      "theme_color": {
+        "label": "Theme color",
+        "hint": "Accent color of the address window. (e.g. #1D4ED8)"
+      }
+    }
+  },
+  "plugin_read_only": "You do not have permission to change this plugin's settings, so they are shown read-only."
+}
